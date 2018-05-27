@@ -13,6 +13,13 @@
 		0818105620BAA00000538A7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0818105420BAA00000538A7A /* Main.storyboard */; };
 		0818105820BAA00B00538A7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0818105720BAA00B00538A7A /* Assets.xcassets */; };
 		0818105B20BAA00B00538A7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0818105920BAA00B00538A7A /* LaunchScreen.storyboard */; };
+		0818106620BAA05000538A7A /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 0818106320BAA05000538A7A /* success.png */; };
+		0818106720BAA05000538A7A /* date.png in Resources */ = {isa = PBXBuildFile; fileRef = 0818106420BAA05000538A7A /* date.png */; };
+		0818106820BAA05000538A7A /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0818106520BAA05000538A7A /* settings.png */; };
+		0818106B20BAA0AD00538A7A /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818106A20BAA0AD00538A7A /* ThirdViewController.swift */; };
+		0818107020BAA0CF00538A7A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818106D20BAA0CE00538A7A /* CalendarView.swift */; };
+		0818107120BAA0CF00538A7A /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818106E20BAA0CF00538A7A /* MonthView.swift */; };
+		0818107220BAA0CF00538A7A /* WeekdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818106F20BAA0CF00538A7A /* WeekdayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,13 @@
 		0818105720BAA00B00538A7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0818105A20BAA00B00538A7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0818105C20BAA00B00538A7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0818106320BAA05000538A7A /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
+		0818106420BAA05000538A7A /* date.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = date.png; sourceTree = "<group>"; };
+		0818106520BAA05000538A7A /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		0818106A20BAA0AD00538A7A /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		0818106D20BAA0CE00538A7A /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		0818106E20BAA0CF00538A7A /* MonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		0818106F20BAA0CF00538A7A /* WeekdayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +70,46 @@
 		0818104D20BA9FFF00538A7A /* Any.do */ = {
 			isa = PBXGroup;
 			children = (
+				0818106C20BAA0BC00538A7A /* CalendarView */,
+				0818106920BAA07A00538A7A /* ViewController */,
+				0818106220BAA03D00538A7A /* resources */,
 				0818104E20BA9FFF00538A7A /* AppDelegate.swift */,
-				0818105020BA9FFF00538A7A /* FirstViewController.swift */,
-				0818105220BA9FFF00538A7A /* SecondViewController.swift */,
 				0818105420BAA00000538A7A /* Main.storyboard */,
 				0818105720BAA00B00538A7A /* Assets.xcassets */,
 				0818105920BAA00B00538A7A /* LaunchScreen.storyboard */,
 				0818105C20BAA00B00538A7A /* Info.plist */,
 			);
 			path = Any.do;
+			sourceTree = "<group>";
+		};
+		0818106220BAA03D00538A7A /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				0818106420BAA05000538A7A /* date.png */,
+				0818106520BAA05000538A7A /* settings.png */,
+				0818106320BAA05000538A7A /* success.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		0818106920BAA07A00538A7A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0818105020BA9FFF00538A7A /* FirstViewController.swift */,
+				0818105220BA9FFF00538A7A /* SecondViewController.swift */,
+				0818106A20BAA0AD00538A7A /* ThirdViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0818106C20BAA0BC00538A7A /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				0818106D20BAA0CE00538A7A /* CalendarView.swift */,
+				0818106E20BAA0CF00538A7A /* MonthView.swift */,
+				0818106F20BAA0CF00538A7A /* WeekdayView.swift */,
+			);
+			path = CalendarView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +170,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0818106820BAA05000538A7A /* settings.png in Resources */,
 				0818105B20BAA00B00538A7A /* LaunchScreen.storyboard in Resources */,
+				0818106720BAA05000538A7A /* date.png in Resources */,
 				0818105820BAA00B00538A7A /* Assets.xcassets in Resources */,
 				0818105620BAA00000538A7A /* Main.storyboard in Resources */,
+				0818106620BAA05000538A7A /* success.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +186,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0818107020BAA0CF00538A7A /* CalendarView.swift in Sources */,
+				0818107220BAA0CF00538A7A /* WeekdayView.swift in Sources */,
+				0818107120BAA0CF00538A7A /* MonthView.swift in Sources */,
 				0818105320BA9FFF00538A7A /* SecondViewController.swift in Sources */,
 				0818104F20BA9FFF00538A7A /* AppDelegate.swift in Sources */,
+				0818106B20BAA0AD00538A7A /* ThirdViewController.swift in Sources */,
 				0818105120BA9FFF00538A7A /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
