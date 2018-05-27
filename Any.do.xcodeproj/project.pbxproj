@@ -18,8 +18,8 @@
 		0818106820BAA05000538A7A /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0818106520BAA05000538A7A /* settings.png */; };
 		0818106B20BAA0AD00538A7A /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818106A20BAA0AD00538A7A /* ThirdViewController.swift */; };
 		0818107020BAA0CF00538A7A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818106D20BAA0CE00538A7A /* CalendarView.swift */; };
-		0818107120BAA0CF00538A7A /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818106E20BAA0CF00538A7A /* MonthView.swift */; };
-		0818107220BAA0CF00538A7A /* WeekdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818106F20BAA0CF00538A7A /* WeekdayView.swift */; };
+		0818108220BAE60C00538A7A /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818108120BAE60C00538A7A /* Style.swift */; };
+		0818108620BB337E00538A7A /* circle-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 0818108520BB337E00538A7A /* circle-blue.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +36,8 @@
 		0818106520BAA05000538A7A /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		0818106A20BAA0AD00538A7A /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		0818106D20BAA0CE00538A7A /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		0818106E20BAA0CF00538A7A /* MonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
-		0818106F20BAA0CF00538A7A /* WeekdayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdayView.swift; sourceTree = "<group>"; };
+		0818108120BAE60C00538A7A /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		0818108520BB337E00538A7A /* circle-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle-blue.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +70,8 @@
 		0818104D20BA9FFF00538A7A /* Any.do */ = {
 			isa = PBXGroup;
 			children = (
-				0818106C20BAA0BC00538A7A /* CalendarView */,
+				0818108020BAE5F200538A7A /* Utils */,
+				0818106C20BAA0BC00538A7A /* View */,
 				0818106920BAA07A00538A7A /* ViewController */,
 				0818106220BAA03D00538A7A /* resources */,
 				0818104E20BA9FFF00538A7A /* AppDelegate.swift */,
@@ -85,6 +86,7 @@
 		0818106220BAA03D00538A7A /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				0818108520BB337E00538A7A /* circle-blue.png */,
 				0818106420BAA05000538A7A /* date.png */,
 				0818106520BAA05000538A7A /* settings.png */,
 				0818106320BAA05000538A7A /* success.png */,
@@ -102,14 +104,20 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		0818106C20BAA0BC00538A7A /* CalendarView */ = {
+		0818106C20BAA0BC00538A7A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				0818106D20BAA0CE00538A7A /* CalendarView.swift */,
-				0818106E20BAA0CF00538A7A /* MonthView.swift */,
-				0818106F20BAA0CF00538A7A /* WeekdayView.swift */,
 			);
-			path = CalendarView;
+			path = View;
+			sourceTree = "<group>";
+		};
+		0818108020BAE5F200538A7A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0818108120BAE60C00538A7A /* Style.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0818106820BAA05000538A7A /* settings.png in Resources */,
+				0818108620BB337E00538A7A /* circle-blue.png in Resources */,
 				0818105B20BAA00B00538A7A /* LaunchScreen.storyboard in Resources */,
 				0818106720BAA05000538A7A /* date.png in Resources */,
 				0818105820BAA00B00538A7A /* Assets.xcassets in Resources */,
@@ -187,12 +196,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0818107020BAA0CF00538A7A /* CalendarView.swift in Sources */,
-				0818107220BAA0CF00538A7A /* WeekdayView.swift in Sources */,
-				0818107120BAA0CF00538A7A /* MonthView.swift in Sources */,
 				0818105320BA9FFF00538A7A /* SecondViewController.swift in Sources */,
 				0818104F20BA9FFF00538A7A /* AppDelegate.swift in Sources */,
 				0818106B20BAA0AD00538A7A /* ThirdViewController.swift in Sources */,
 				0818105120BA9FFF00538A7A /* FirstViewController.swift in Sources */,
+				0818108220BAE60C00538A7A /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
