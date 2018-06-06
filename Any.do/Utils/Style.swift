@@ -17,16 +17,6 @@ struct Style {
     static var cellAccentBgImage = UIImage(named: "circle-blue")
     static var cellAccentTxtColor = UIColor.white
 
-    static func themeWhite() {
-        bgColor = UIColor.white
-        btnBgColor = UIColor.white
-        btnTxtColor = UIColor.blue
-        lblBgColor = UIColor.white
-        lblTxtColor = UIColor.black
-        cellAccentBgImage = UIImage(named: "circle-blue")
-        cellAccentTxtColor = UIColor.white
-    }
-
     static func themeBlack() {
         bgColor = UIColor.black
         btnBgColor = UIColor.black
@@ -36,9 +26,53 @@ struct Style {
         cellAccentBgImage = UIImage(named: "circle-blue")
         cellAccentTxtColor = UIColor.white
     }
+    
+    static func themeBlue() {
+        bgColor = UIColor.white
+        btnBgColor = UIColor.white
+        btnTxtColor = UIColor.blue
+        lblBgColor = UIColor.white
+        lblTxtColor = UIColor.black
+        cellAccentBgImage = UIImage(named: "circle-blue")
+        cellAccentTxtColor = UIColor.white
+    }
+    
+    static func themeGreen() {
+        bgColor = UIColor.white
+        btnBgColor = UIColor.white
+        btnTxtColor = UIColor.blue
+        lblBgColor = UIColor.white
+        lblTxtColor = UIColor.black
+        cellAccentBgImage = UIImage(named: "circle-blue")
+        cellAccentTxtColor = UIColor.white
+    }
+
+    static func themePink() {
+        bgColor = UIColor.white
+        btnBgColor = UIColor.white
+        btnTxtColor = UIColor.blue
+        lblBgColor = UIColor.white
+        lblTxtColor = UIColor.black
+        cellAccentBgImage = UIImage(named: "circle-blue")
+        cellAccentTxtColor = UIColor.white
+    }
+    
+    static func themeYellow() {
+        bgColor = UIColor.white
+        btnBgColor = UIColor.white
+        btnTxtColor = UIColor.blue
+        lblBgColor = UIColor.white
+        lblTxtColor = UIColor.black
+        cellAccentBgImage = UIImage(named: "circle-blue")
+        cellAccentTxtColor = UIColor.white
+    }
+    
 }
 
 enum Theme {
-    case White
     case Black
+    case Blue
+    case Green
+    case Pink
+    case Yellow
 }

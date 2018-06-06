@@ -54,18 +54,27 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         return v
     }()
     
-    // override init(frame: CGRect >> convenience init(theme: Theme)
+    // override init(frame: CGRect >> convenience init(theme: Theme) 순서로 호출
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
     convenience init(theme: Theme) {
         switch theme {
-        case .White:
-            Style.themeWhite()
-            break
         case .Black:
             Style.themeBlack()
+            break
+        case .Blue:
+            Style.themeBlue()
+            break
+        case .Green:
+            Style.themeGreen()
+            break
+        case .Pink:
+            Style.themePink()
+            break
+        case .Yellow:
+            Style.themeYellow()
             break
         }
 

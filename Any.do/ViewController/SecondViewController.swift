@@ -10,7 +10,7 @@ import UIKit
 
 class SecondViewController: UIViewController {
     let calendarView: CalendarView = {
-        let v = CalendarView(theme: Theme.White)
+        let v = CalendarView(theme: Theme.Blue)
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()

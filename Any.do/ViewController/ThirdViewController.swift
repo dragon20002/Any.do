@@ -9,19 +9,36 @@
 import UIKit
 
 class ThirdViewController: UIViewController {
-
+    var secondView: SecondViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        secondView = tabBarController?.viewControllers![1] as? SecondViewController
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func changeThemeBlack(_ sender: Any) {
+        Style.themeBlack()
+        secondView?.calendarView.changeTheme()
     }
-    */
+    
+    @IBAction func changeThemeBlue(_ sender: Any) {
+        Style.themeBlue()
+        secondView?.calendarView.changeTheme()
+    }
+    
+    @IBAction func changeThemeGreen(_ sender: Any) {
+        Style.themeGreen()
+        secondView?.calendarView.changeTheme()
+    }
+    
+    @IBAction func changeThemePink(_ sender: Any) {
+        Style.themePink()
+        secondView?.calendarView.changeTheme()
+    }
+    
+    @IBAction func changeThemeYellow(_ sender: Any) {
+        Style.themeYellow()
+        secondView?.calendarView.changeTheme()
+    }
 
 }
