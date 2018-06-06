@@ -71,26 +71,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Third View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="18Y-fc-bFi">
-                                <rect key="frame" x="302.5" y="490.5" width="163" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rP6-d3-i94">
+                                <rect key="frame" x="355" y="70" width="58" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="RhI-o8-hHV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by ThirdViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5c-s7-OwL">
-                                <rect key="frame" x="283.5" y="541.5" width="200" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="06x-WS-TgX">
+                                <rect key="frame" x="50" y="167" width="668" height="36"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ql5-Cc-1tU">
+                                        <rect key="frame" x="0.0" y="0.0" width="668" height="36"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="테마" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="499-Ij-PQN">
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="J3Z-dJ-DRo">
+                                                <rect key="frame" x="334" y="0.0" width="334" height="36"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9b6-87-818">
+                                                        <rect key="frame" x="0.0" y="0.0" width="67" height="36"/>
+                                                        <state key="normal" image="circle-black.png"/>
+                                                        <connections>
+                                                            <action selector="changeThemeBlack:" destination="BlA-lp-wgm" eventType="touchUpInside" id="FTl-od-pDy"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeG-9M-U5R">
+                                                        <rect key="frame" x="67" y="0.0" width="66.5" height="36"/>
+                                                        <state key="normal" image="circle-blue2.png"/>
+                                                        <connections>
+                                                            <action selector="changeThemeBlue:" destination="BlA-lp-wgm" eventType="touchUpInside" id="lLg-mm-RAj"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vX-7i-xAI">
+                                                        <rect key="frame" x="133.5" y="0.0" width="67" height="36"/>
+                                                        <state key="normal" image="circle-green.png"/>
+                                                        <connections>
+                                                            <action selector="changeThemeGreen:" destination="BlA-lp-wgm" eventType="touchUpInside" id="8YD-el-tSR"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhB-8H-TB8">
+                                                        <rect key="frame" x="200.5" y="0.0" width="66.5" height="36"/>
+                                                        <state key="normal" image="circle-pink.png"/>
+                                                        <connections>
+                                                            <action selector="changeThemePink:" destination="BlA-lp-wgm" eventType="touchUpInside" id="Ps1-ix-gx7"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yf-M0-M0t">
+                                                        <rect key="frame" x="267" y="0.0" width="67" height="36"/>
+                                                        <state key="normal" image="circle-yellow.png"/>
+                                                        <connections>
+                                                            <action selector="changeThemeYellow:" destination="BlA-lp-wgm" eventType="touchUpInside" id="pTG-Kv-biO"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Y5c-s7-OwL" firstAttribute="centerX" secondItem="18Y-fc-bFi" secondAttribute="centerX" id="3jT-3V-XA0"/>
-                            <constraint firstAttribute="centerY" secondItem="18Y-fc-bFi" secondAttribute="centerY" id="CHB-Ou-3sP"/>
-                            <constraint firstAttribute="centerX" secondItem="18Y-fc-bFi" secondAttribute="centerX" id="IEy-aE-R0u"/>
-                            <constraint firstItem="Y5c-s7-OwL" firstAttribute="top" secondItem="18Y-fc-bFi" secondAttribute="bottom" constant="8" symbolic="YES" id="ckU-Kh-lUZ"/>
+                            <constraint firstItem="rP6-d3-i94" firstAttribute="leading" secondItem="37e-MT-WP4" secondAttribute="leading" constant="355" id="Afu-RY-1mO"/>
+                            <constraint firstItem="06x-WS-TgX" firstAttribute="leading" secondItem="37e-MT-WP4" secondAttribute="leading" constant="50" id="Zvh-Dl-BdS"/>
+                            <constraint firstItem="rP6-d3-i94" firstAttribute="top" secondItem="37e-MT-WP4" secondAttribute="top" constant="50" id="bVe-HJ-pva"/>
+                            <constraint firstItem="rP6-d3-i94" firstAttribute="centerX" secondItem="06x-WS-TgX" secondAttribute="centerX" id="m7F-Cf-A0E"/>
+                            <constraint firstItem="37e-MT-WP4" firstAttribute="trailing" secondItem="06x-WS-TgX" secondAttribute="trailing" constant="50" id="oxy-KP-zkA"/>
+                            <constraint firstItem="06x-WS-TgX" firstAttribute="top" secondItem="rP6-d3-i94" secondAttribute="bottom" constant="50" id="uMI-K9-J00"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="37e-MT-WP4"/>
                     </view>
@@ -98,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RCI-4Z-3mL" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="750" y="359.765625"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VUG-In-RaJ">
@@ -121,6 +175,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="circle-black.png" width="32" height="32"/>
+        <image name="circle-blue2.png" width="32" height="32"/>
+        <image name="circle-green.png" width="32" height="32"/>
+        <image name="circle-pink.png" width="32" height="32"/>
+        <image name="circle-yellow.png" width="32" height="32"/>
         <image name="date.png" width="24" height="24"/>
         <image name="settings.png" width="24" height="24"/>
         <image name="success.png" width="24" height="24"/>
