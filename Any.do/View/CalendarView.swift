@@ -8,6 +8,49 @@
 
 import UIKit
 
+class DateCell: UICollectionViewCell {
+    let btn: UIButton = {
+        let btn = UIButton()
+        btn.backgroundColor = Style.bgColor
+        btn.isUserInteractionEnabled = false
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let lbl: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "00"
+        lbl.textAlignment = .center
+        lbl.font = UIFont.systemFont(ofSize: 16)
+        lbl.textColor = Style.lblTxtColor
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        return lbl
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = Style.bgColor
+        layer.masksToBounds = true
+        
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError() //never use nib
+    }
+    
+    func setupViews() {
+        addSubview(btn)
+        btn.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        btn.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        addSubview(lbl)
+        lbl.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        lbl.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    }
+    
+}
+
 class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var numOfDaysInMonth = [ 31, 28, 31, 30, 31, 31, 31, 31, 30, 31, 30, 31 ]
     var currentYear = 0
@@ -221,49 +264,6 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     func getFirstWeekday() -> Int {
         let day = ("\(currentYear)-\(currentMonth)-01".date?.firstDayOfTheMonth.weekday)!
         return day == 7 ? 1 : day
-    }
-
-}
-
-class DateCell: UICollectionViewCell {
-    let btn: UIButton = {
-        let btn = UIButton()
-        btn.backgroundColor = Style.bgColor
-        btn.isUserInteractionEnabled = false
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
-    }()
-
-    let lbl: UILabel = {
-        let lbl = UILabel()
-        lbl.text = "00"
-        lbl.textAlignment = .center
-        lbl.font = UIFont.systemFont(ofSize: 16)
-        lbl.textColor = Style.lblTxtColor
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        return lbl
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = Style.bgColor
-        layer.masksToBounds = true
-    
-        setupViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError() //never use nib
-    }
-    
-    func setupViews() {
-        addSubview(btn)
-        btn.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        btn.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-
-        addSubview(lbl)
-        lbl.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        lbl.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
 
 }

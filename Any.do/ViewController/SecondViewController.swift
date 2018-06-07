@@ -29,5 +29,11 @@ class SecondViewController: UIViewController {
         calendarView.dateView.collectionViewLayout.invalidateLayout()
     }
 
+    /* IBAction */
+    @IBAction func addTodo(_ sender: Any) {
+        // TODO on Add Item
+        
+    }
+    
 }
 
