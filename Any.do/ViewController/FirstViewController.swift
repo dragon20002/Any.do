@@ -43,7 +43,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         todoTableView.delegate = self
         todoTableView.dataSource = self
     }
-    
+
     func changeTheme() {
         view.backgroundColor = Style.bgColor
         lblTitle.backgroundColor = Style.lblBgColor
@@ -64,6 +64,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return todoTableView.todoList.count
     }
 
+    @available(iOS 2.0, *)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let todoCell = todoTableView.dequeueReusableCell(withIdentifier: "todoCell") as! TodoCell
         todoCell.todo = todoTableView.todoList[indexPath.row]

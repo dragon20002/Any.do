@@ -104,6 +104,7 @@ class TodoTableView: UITableView {
             return (dir?.appendingPathComponent("todo.archive").path)!
         }
     }
+    var longPressedTodoIndexPath: IndexPath?
 
     // init
     required init?(coder aDecoder: NSCoder) {
@@ -114,6 +115,9 @@ class TodoTableView: UITableView {
         let rightSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(changeCellMode))
         rightSwipeRecognizer.direction = .right
         gestureRecognizers = [ leftSwipeRecognizer, rightSwipeRecognizer ]
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(moveCell))
+        addGestureRecognizer(longPressRecognizer)
+        
         isUserInteractionEnabled = true
         
         if let archived = NSKeyedUnarchiver.unarchiveObject(withFile: path) as! [Todo]? {
@@ -154,6 +158,12 @@ class TodoTableView: UITableView {
         return 0
     }
     
+    func moveRowAt(source: Int, dest: Int) {
+        let todo = todoList[source]
+        todoList.remove(at: source)
+        todoList.insert(todo, at: dest)
+    }
+    
     /* Gesture Handler */
     func getCellFromRecognizer(_ recognizer: UISwipeGestureRecognizer) -> TodoCell? {
         let point = recognizer.location(in: self)
@@ -162,12 +172,33 @@ class TodoTableView: UITableView {
         }
         return nil
     }
-    
+
     @objc func changeCellMode(recognizer: UISwipeGestureRecognizer) {
         if recognizer.direction == .left { //to normal mode
             getCellFromRecognizer(recognizer)?.setCellModeNormal()
         } else if recognizer.direction == .right { //to delete mode
             getCellFromRecognizer(recognizer)?.setCellModeDelete()
+        }
+    }
+    
+    @objc func moveCell(recognizer: UILongPressGestureRecognizer) {
+        let state = recognizer.state
+        let point = recognizer.location(in: self)
+        
+        if state == .began {
+            longPressedTodoIndexPath = indexPathForRow(at: point)
+        } else if state == .ended {
+            if let sourceIndexPath = longPressedTodoIndexPath, let destIndexPath = indexPathForRow(at: point) {
+                moveRowAt(source: sourceIndexPath.row, dest: destIndexPath.row)
+                moveRow(at: sourceIndexPath, to: destIndexPath)
+                longPressedTodoIndexPath = nil
+            }
+        } else if state == .changed {
+            if let sourceIndexPath = longPressedTodoIndexPath, let destIndexPath = indexPathForRow(at: point) {
+                moveRowAt(source: sourceIndexPath.row, dest: destIndexPath.row)
+                moveRow(at: sourceIndexPath, to: destIndexPath)
+                longPressedTodoIndexPath = destIndexPath
+            }
         }
     }
     

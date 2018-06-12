@@ -31,6 +31,8 @@ class AddTodoViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        textField.becomeFirstResponder()
         
         todoLabelTableView.delegate = self
         todoLabelTableView.dataSource = self
@@ -66,6 +68,7 @@ class AddTodoViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     @IBAction func backToMain(_ sender: UIButton) {
+        textField.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }
     
@@ -79,6 +82,7 @@ class AddTodoViewController: UIViewController, UITableViewDelegate, UITableViewD
                 dismiss(animated: true, completion: nil)
             }
         }
+        textField.resignFirstResponder()
     }
 
     /* UITableViewDelegate */
