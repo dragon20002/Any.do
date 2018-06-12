@@ -21,6 +21,13 @@ class EventCell: UITableViewCell {
         }
     }
     
+    func changeTheme() {
+        backgroundColor = Style.bgColor
+        lblName.backgroundColor = Style.lblBgColor
+        lblName.textColor = Style.lblTxtColor
+        lblTime.backgroundColor = Style.lblBgColor
+        lblTime.textColor = Style.lblTxtColor
+    }
 }
 
 class EventTableView: UITableView {
@@ -39,26 +46,16 @@ class EventTableView: UITableView {
 
         if let archived = NSKeyedUnarchiver.unarchiveObject(withFile: path) as! [Event]? {
             eventList += archived
+        }
     }
     
     func changeTheme() {
-    }
-    
-    /* Gesture Handler */
-    func getCellFromRecognizer(_ recognizer: UISwipeGestureRecognizer) -> EventCell? {
-        let point = recognizer.location(in: self)
-        if let indexPath = indexPathForRow(at: point) {
-            return cellForRow(at: indexPath) as? EventCell
+        backgroundColor = Style.bgColor
+        visibleCells.forEach { cell in
+            let c = cell as! EventCell
+            c.changeTheme()
         }
-        return nil
-    }
-    
-//    @objc func changeCellMode(recognizer: UISwipeGestureRecognizer) {
-//        if recognizer.direction == .left { //to normal mode
-//            getCellFromRecognizer(recognizer)?.setCellModeNormal()
-//        } else if recognizer.direction == .right { //to delete mode
-//            getCellFromRecognizer(recognizer)?.setCellModeDelete()
-//        }
+        reloadData()
     }
     
     /* File IO */

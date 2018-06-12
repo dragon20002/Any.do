@@ -9,20 +9,20 @@
 import UIKit
 
 class ThirdViewController: UIViewController {
-
-    var firstView: FirstViewController?
-    var secondView: SecondViewController?
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblTheme: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        firstView = tabBarController?.viewControllers![0] as? FirstViewController
-        secondView = tabBarController?.viewControllers![1] as? SecondViewController
     }
-    
+
     func changeTheme() {
-        firstView?.todoTableView.changeTheme()
-        secondView?.calendarView.changeTheme()
+        view.backgroundColor = Style.bgColor
+        lblTitle.backgroundColor = Style.lblBgColor
+        lblTitle.textColor = Style.btnTxtColor
+        lblTheme.backgroundColor = Style.lblBgColor
+        lblTheme.textColor = Style.lblTxtColor
+        tabBarController?.tabBar.tintColor = Style.tabBarItemColor
     }
 
     @IBAction func changeThemeBlack(_ sender: Any) {

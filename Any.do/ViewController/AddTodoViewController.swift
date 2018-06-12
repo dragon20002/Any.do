@@ -13,9 +13,10 @@ protocol AddTodoDelegate {
 }
 
 class AddTodoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
     var todoLabelList = [String]()
+    @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var btnSuccess: UIButton!
     @IBOutlet weak var todoLabelTableView: UITableView!
     var delegate: AddTodoDelegate?
     

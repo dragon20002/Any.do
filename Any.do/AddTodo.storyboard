@@ -91,6 +91,8 @@
                         <viewLayoutGuide key="safeArea" id="cW4-nK-FVU"/>
                     </view>
                     <connections>
+                        <outlet property="btnBack" destination="Qz1-kM-AYL" id="jMB-h7-sR9"/>
+                        <outlet property="btnSuccess" destination="45M-Ru-qwV" id="vye-GM-7NM"/>
                         <outlet property="textField" destination="S54-xg-cfZ" id="n8q-WJ-AVZ"/>
                         <outlet property="todoLabelTableView" destination="ysA-CQ-fB7" id="1ui-Hj-nYw"/>
                     </connections>

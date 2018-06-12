@@ -6,41 +6,93 @@
 //  Copyright © 2018년 haruu. All rights reserved.
 //
 
+/**
+ * 호출순서
+ * UITableView init >> FirstVC numberOfRowsInSection >> FirstVC cellForRowAt
+ *  >> TodoCell todo didSet >> TodoCell setCellModeXXXX
+ */
+
 import UIKit
 
 class TodoCell: UITableViewCell {
     @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var ivCancelLine: UIImageView!
     @IBOutlet weak var btnDelete: UIButton!
     
     var todo: Todo? {
         didSet {
-            lblName.text = todo?.name
+            if let todo = todo {
+                lblName.text = todo.name
+                btnDelete.isHidden = !todo.delMode
+                if btnDelete.isHidden {
+                    setCellModeNormal()
+                } else {
+                    setCellModeDelete()
+                }
+            }
         }
     }
     
+    func changeTheme() {
+        backgroundColor = Style.bgColor
+        if todo?.delMode == true {
+            setCellModeDelete()
+        } else {
+            setCellModeNormal()
+        }
+        btnDelete.setImage(Style.cancelImage, for: .normal)
+    }
+
     /* Gesture Handler Delegate */
     func setCellModeNormal() {
+        lblName.textColor = Style.lblTxtColor
         btnDelete.isHidden = true
+        todo?.delMode = false
+        
+        // erase line
+        ivCancelLine.image = nil
+
+        // update todo
+        if let parent = superview?.superview as! TodoTableView? {
+            if let id = todo?.id {
+                parent.setTodoDelMode(id: id, delMode: false)
+            }
+        }
     }
     
     func setCellModeDelete() {
+        lblName.textColor = Style.cancelLine
         btnDelete.isHidden = false
+        todo?.delMode = true
+        
+        // draw line
+        UIGraphicsBeginImageContext(ivCancelLine.frame.size)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setLineWidth(2.0)
+        context?.setStrokeColor(Style.cancelLine.cgColor)
+        context?.move(to: CGPoint(x: 0, y: 50))
+        context?.addLine(to: CGPoint(x: ivCancelLine.frame.size.width, y: 50))
+        context?.strokePath()
+        ivCancelLine.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndPDFContext()
+        
+        // update todo
+        if let parent = superview?.superview as! TodoTableView? {
+            if let id = todo?.id {
+                parent.setTodoDelMode(id: id, delMode: true)
+            }
+        }
     }
     
     @IBAction func deleteTodo(_ sender: UIButton) {
         let parent = superview?.superview as! TodoTableView
-        let n = parent.todoList.count
-        for i in 0 ..< n {
-            if parent.todoList[i].id == todo?.id {
-                parent.todoList.remove(at: i)
-                parent.saveTodoList()
-                parent.reloadData()
+        if let id = todo?.id {
+            if (parent.deleteTodo(id: id) >= 0) {
                 btnDelete.isHidden = true
-                return
             }
         }
     }
-
+    
 }
 
 class TodoTableView: UITableView {
@@ -70,6 +122,36 @@ class TodoTableView: UITableView {
     }
 
     func changeTheme() {
+        backgroundColor = Style.bgColor
+        visibleCells.forEach { cell in
+            let c = cell as! TodoCell
+            c.changeTheme()
+        }
+        reloadData()
+    }
+    
+    func setTodoDelMode(id: Int, delMode: Bool) {
+        let n = todoList.count
+        for i in 0 ..< n {
+            if todoList[i].id == id {
+                todoList[i].delMode = delMode
+                saveTodoList()
+                return
+            }
+        }
+    }
+    
+    func deleteTodo(id: Int) -> Int {
+        let n = todoList.count
+        for i in 0 ..< n {
+            if todoList[i].id == id {
+                todoList.remove(at: i)
+                saveTodoList()
+                reloadData()
+                return id
+            }
+        }
+        return 0
     }
     
     /* Gesture Handler */

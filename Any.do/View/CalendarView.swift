@@ -9,10 +9,12 @@
 import UIKit
 
 class DateCell: UICollectionViewCell {
+    // fields
     let btn: UIButton = {
         let btn = UIButton()
-        btn.backgroundColor = Style.bgColor
+        btn.setBackgroundImage(Style.cellAccentBgImage, for: .normal)
         btn.isUserInteractionEnabled = false
+        btn.isHidden = true
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -27,6 +29,7 @@ class DateCell: UICollectionViewCell {
         return lbl
     }()
     
+    // init
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = Style.bgColor
@@ -36,7 +39,7 @@ class DateCell: UICollectionViewCell {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError() //never use nib
+        fatalError() //storyboard에 바인딩 불가
     }
     
     func setupViews() {
@@ -49,9 +52,26 @@ class DateCell: UICollectionViewCell {
         lbl.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
+    func changeTheme() {
+        btn.setBackgroundImage(Style.cellAccentBgImage, for: .normal)
+        lbl.textColor = Style.lblTxtColor
+    }
+    
+    func select() {
+        btn.isHidden = false
+        lbl.textColor = Style.cellAccentTxtColor
+    }
+    
+    func deselect() {
+        btn.isHidden = true
+        lbl.textColor = Style.lblTxtColor
+    }
+    
 }
 
 class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    // fields
+    // ...data
     var numOfDaysInMonth = [ 31, 28, 31, 30, 31, 31, 31, 31, 30, 31, 30, 31 ]
     var currentYear = 0
     var currentMonth = 0
@@ -59,7 +79,9 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     var todayMonth = 0
     var todayDate = 0
     var firstWeekDayOfMonth = 0 // 1-7 일-월
-    
+    var dateCellIndexPaths = [IndexPath]()
+
+    // ...view
     let btnYearMonth: UIButton = {
         let btn = UIButton()
         btn.setTitle("Year Month", for: .normal)
@@ -97,30 +119,13 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         return v
     }()
     
-    // override init(frame: CGRect >> convenience init(theme: Theme) 순서로 호출
+    // init
+    // 호출 순서: override init(frame: CGRect >> convenience init(theme: Theme)
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
     convenience init(theme: Theme) {
-        switch theme {
-        case .Black:
-            Style.themeBlack()
-            break
-        case .Blue:
-            Style.themeBlue()
-            break
-        case .Green:
-            Style.themeGreen()
-            break
-        case .Pink:
-            Style.themePink()
-            break
-        case .Yellow:
-            Style.themeYellow()
-            break
-        }
-
         // load variables, btnYearMonth, weekdayView, collectionView
         self.init()
 
@@ -149,7 +154,7 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError() //do not call from nib
+        fatalError() //storyboard에 바인딩 불가
     }
 
     func setupViews() {
@@ -174,14 +179,23 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func changeTheme() {
-        dateView.reloadData()
+        deselectAllDateCell()
         
+        backgroundColor = Style.bgColor
         btnYearMonth.backgroundColor = Style.btnBgColor
         btnYearMonth.setTitleColor(Style.btnTxtColor, for: .normal)
         let subviews = weekdayView.subviews
         for i in 0 ..< 7 {
-            (subviews[i] as! UILabel).textColor = Style.lblTxtColor
+            let lbl = subviews[i] as! UILabel
+            lbl.backgroundColor = Style.lblBgColor
+            lbl.textColor = Style.lblTxtColor
         }
+        dateView.backgroundColor = Style.bgColor
+        dateView.visibleCells.forEach { cell in
+            let c = cell as! DateCell
+            c.changeTheme()
+        }
+        dateView.reloadData()
     }
     
     @objc func changeMonth(recognizer: UISwipeGestureRecognizer) {
@@ -200,14 +214,52 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         }
         btnYearMonth.setTitle("\(currentYear)년 \(currentMonth)월", for: .normal)
         firstWeekDayOfMonth = getFirstWeekday()
-        if let indexPaths = dateView.indexPathsForSelectedItems {
-            if indexPaths.count > 0 {
-                collectionView(dateView, didDeselectItemAt: indexPaths[0])
-            }
-        }
+        deselectAllDateCell()
+        dateCellIndexPaths.removeAll()
         dateView.reloadData()
     }
+    
+    func getFirstWeekday() -> Int {
+        let day = ("\(currentYear)-\(currentMonth)-01".date?.firstDayOfTheMonth.weekday)!
+        return day == 7 ? 1 : day
+    }
+    
+    func deselectAllDateCell() {
+        if let indexPaths = dateView.indexPathsForSelectedItems {
+            indexPaths.forEach { indexPath in
+                dateView.deselectItem(at: indexPath, animated: true)
+                collectionView(dateView, didDeselectItemAt: indexPath)
+            }
+        }
+    }
 
+    func setDate(date: Date) {
+        deselectAllDateCell()
+        let day = Calendar.current.component(.day, from: date)
+        let dayIndexPath = dateCellIndexPaths[day - 1]
+        dateView.selectItem(at: dayIndexPath, animated: true, scrollPosition: .centeredVertically)
+        collectionView(dateView, didSelectItemAt: dayIndexPath)
+    }
+
+    /* CollectionView Delegate */
+    @available(iOS 6.0, *)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? DateCell {
+            cell.select()
+        }
+        
+        // TODO scroll event table view
+    }
+    
+    @available(iOS 6.0, *)
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? DateCell {
+            cell.deselect()
+        }
+    }
+    
+    /* CollectionView DataSource */
+    @available(iOS 6.0, *)
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var day = numOfDaysInMonth[currentMonth - 1] + firstWeekDayOfMonth - 1
         if currentMonth == 2 {
@@ -218,6 +270,7 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         return day
     }
     
+    @available(iOS 6.0, *)
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! DateCell
         cell.backgroundColor = Style.lblBgColor
@@ -227,45 +280,29 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
             let calcDate = indexPath.row - firstWeekDayOfMonth + 2
             cell.isHidden = false
             cell.lbl.text = "\(calcDate)"
+            dateCellIndexPaths.append(indexPath)
         }
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        let btn = cell?.subviews[1] as! UIButton
-        btn.setBackgroundImage(Style.cellAccentBgImage, for: .normal)
-        let lbl = cell?.subviews[2] as! UILabel
-        lbl.textColor = Style.cellAccentTxtColor
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        let btn = cell?.subviews[1] as! UIButton
-        btn.setBackgroundImage(nil, for: .normal)
-        let lbl = cell?.subviews[2] as! UILabel
-        lbl.textColor = Style.lblTxtColor
-    }
-    
+    /* CollectionView Delegate FlowLayout */
+    @available(iOS 6.0, *)
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width / 7 - 8
         let height: CGFloat = 40
         return CGSize(width: width, height: height)
     }
-    
+
+    @available(iOS 6.0, *)
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 8.0
     }
-    
+
+    @available(iOS 6.0, *)
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 8.0
     }
     
-    func getFirstWeekday() -> Int {
-        let day = ("\(currentYear)-\(currentMonth)-01".date?.firstDayOfTheMonth.weekday)!
-        return day == 7 ? 1 : day
-    }
-
 }
 
 extension Date {

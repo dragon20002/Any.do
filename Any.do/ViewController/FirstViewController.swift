@@ -11,15 +11,26 @@ import UIKit
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddTodoDelegate {
     
     // fields
+    @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var todoTableView: TodoTableView!
-
+    @IBOutlet weak var btnAdd: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         todoTableView.delegate = self
         todoTableView.dataSource = self
     }
+    
+    func changeTheme() {
+        view.backgroundColor = Style.bgColor
+        lblTitle.backgroundColor = Style.lblBgColor
+        lblTitle.textColor = Style.btnTxtColor
+        todoTableView.changeTheme()
+        btnAdd.setImage(Style.btnAddImage, for: .normal)
+    }
 
+    /* UITableViewDelegate */
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO on Select Item

@@ -16,11 +16,11 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
-
     @IBOutlet weak var calendarViewFrame: UIView!
-    
     @IBOutlet weak var eventTableView: EventTableView!
-    
+    @IBOutlet weak var btnAdd: UIButton!
+
+    // init
     override func viewDidLoad() {
         super.viewDidLoad()
         calendarViewFrame.addSubview(calendarView)
@@ -38,14 +38,25 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         calendarView.dateView.collectionViewLayout.invalidateLayout()
     }
     
+    func changeTheme() {
+        view.backgroundColor = Style.bgColor
+        calendarView.changeTheme()
+        eventTableView.changeTheme()
+        btnAdd.setImage(Style.btnAddImage, for: .normal)
+    }
+    
+    /* UITableViewDelegate */
+    @available(iOS 2.0, *)
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let indexPath = eventTableView.indexPathsForVisibleRows?.first {
+            let event = eventTableView.eventList[indexPath.row]
+            calendarView.setDate(date: event.start)
+        }
+    }
+    
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO on Select Item
-    }
-    
-    @available(iOS 3.0, *)
-    public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        // TODO on Deselect Item
     }
     
     /* UITableViewDataSource */
