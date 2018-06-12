@@ -21,6 +21,7 @@ struct Style {
     static var backImage = UIImage(named: "back")
     static var cancelLine = UIColor.gray
     static var cancelImage = UIImage(named: "cancel")
+    static var successImage = UIImage(named: "success-blue")
 
     static func themeBlack() {
         tabBarItemColor = UIColor.black
@@ -35,6 +36,7 @@ struct Style {
         backImage = UIImage(named: "back-yellow")
         cancelLine = UIColor.red
         cancelImage = UIImage(named: "cancel-red")
+        successImage = UIImage(named: "success-yellow")
     }
     
     static func themeBlue() {
@@ -50,6 +52,7 @@ struct Style {
         backImage = UIImage(named: "back")
         cancelLine = UIColor.gray
         cancelImage = UIImage(named: "cancel")
+        successImage = UIImage(named: "success-blue")
     }
     
     static func themeGreen() {
@@ -65,6 +68,7 @@ struct Style {
         backImage = UIImage(named: "back")
         cancelLine = UIColor.gray
         cancelImage = UIImage(named: "cancel")
+        successImage = UIImage(named: "success-green")
     }
 
     static func themePink() {
@@ -80,6 +84,7 @@ struct Style {
         backImage = UIImage(named: "back")
         cancelLine = UIColor.gray
         cancelImage = UIImage(named: "cancel")
+        successImage = UIImage(named: "success-pink")
     }
     
     static func themeYellow() {
@@ -95,6 +100,7 @@ struct Style {
         backImage = UIImage(named: "back")
         cancelLine = UIColor.gray
         cancelImage = UIImage(named: "cancel")
+        successImage = UIImage(named: "success-yellow")
     }
     
 }

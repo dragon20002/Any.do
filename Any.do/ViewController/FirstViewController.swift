@@ -18,6 +18,28 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let theme = UserDefaults.standard.integer(forKey: "theme")
+        switch theme {
+        case 0:
+            Style.themeBlack()
+            break
+        case 1:
+            Style.themeBlue()
+            break
+        case 2:
+            Style.themeGreen()
+            break
+        case 3:
+            Style.themePink()
+            break
+        case 4:
+            Style.themeYellow()
+        default:
+            Style.themeBlue()
+        }
+        changeTheme()
+        tabBarController?.tabBar.tintColor = Style.tabBarItemColor
+        
         todoTableView.delegate = self
         todoTableView.dataSource = self
     }
@@ -36,11 +58,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // TODO on Select Item
     }
     
-    @available(iOS 3.0, *)
-    public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        // TODO on Deselect Item
-    }
-    
     /* UITableViewDataSource */
     // must have
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,6 +67,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let todoCell = todoTableView.dequeueReusableCell(withIdentifier: "todoCell") as! TodoCell
         todoCell.todo = todoTableView.todoList[indexPath.row]
+        todoCell.changeTheme()
         return todoCell
     }
     

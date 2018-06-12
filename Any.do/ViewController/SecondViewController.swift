@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddEventDelegate {
+class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,
+        AddEventDelegate, DetailEventDelegate {
     
     // fields
     let calendarView: CalendarView = {
@@ -56,7 +57,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO on Select Item
+        performSegue(withIdentifier: "detailEvent", sender: self)
     }
     
     /* UITableViewDataSource */
@@ -68,19 +69,34 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let eventCell = eventTableView.dequeueReusableCell(withIdentifier: "eventCell") as! EventCell
         eventCell.event = eventTableView.eventList[indexPath.row]
+        eventCell.changeTheme()
         return eventCell
     }
 
-    /* 현재화면 >> 추가화면 */
+    /* 현재화면 >> 추가/상세 화면 */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let addEventViewController = segue.destination as! AddEventViewController
-        
-        addEventViewController.delegate = self
+        let id = segue.identifier
+
+        if id == "addEvent" {
+            let addEventViewController = segue.destination as! AddEventViewController
+            addEventViewController.delegate = self
+        } else if id == "detailEvent" {
+            let detailEventViewController = segue.destination as! DetailEventViewController
+            let cell = eventTableView.cellForRow(at: eventTableView.indexPathForSelectedRow!) as! EventCell
+            detailEventViewController.event = cell.event
+            detailEventViewController.delegate = self
+        }
     }
     
-    /* 현재화면 << 추가화면 */
+    /* 현재화면 << 추가/상세 화면 */
     func addEventAndUpdateTableView(_ event: Event) {
         eventTableView.eventList.append(event)
+        eventTableView.saveEventList()
+        eventTableView.reloadData()
+    }
+    
+    func deleteEvent(id: Int) {
+        eventTableView.eventList.remove(at: id)
         eventTableView.saveEventList()
         eventTableView.reloadData()
     }

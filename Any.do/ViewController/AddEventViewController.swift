@@ -14,16 +14,49 @@ protocol AddEventDelegate {
 
 class AddEventViewController: UIViewController {
     
+    @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var btnSuccess: UIButton!
+    
+    @IBOutlet weak var lblForName: UILabel!
     @IBOutlet weak var tfName: UITextField!
+    
+    @IBOutlet weak var lblForDate: UILabel!
     @IBOutlet weak var dateStart: UIDatePicker!
     @IBOutlet weak var dateEnd: UIDatePicker!
+    
+    @IBOutlet weak var lblForLocation: UILabel!
     @IBOutlet weak var tfLocation: UITextField!
+
+    @IBOutlet weak var lblForAlarm: UILabel!
     @IBOutlet weak var alarmTime: UIDatePicker!
+
+    @IBOutlet weak var lblForMemo: UILabel!
     @IBOutlet weak var tfMemo: UITextField!
+    
     var delegate: AddEventDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        changeTheme()
+    }
+    
+    func changeTheme() {
+        view.backgroundColor = Style.bgColor
+        btnBack.setImage(Style.backImage, for: .normal)
+        btnSuccess.setImage(Style.successImage, for: .normal)
+        btnBack.setImage(Style.backImage, for: .normal)
+        btnSuccess.setImage(Style.successImage, for: .normal)
+        lblForName.backgroundColor = Style.lblBgColor
+        lblForName.textColor = Style.lblTxtColor
+        lblForDate.backgroundColor = Style.lblBgColor
+        lblForDate.textColor = Style.lblTxtColor
+        lblForLocation.backgroundColor = Style.lblBgColor
+        lblForLocation.textColor = Style.lblTxtColor
+        lblForAlarm.backgroundColor = Style.lblBgColor
+        lblForAlarm.textColor = Style.lblTxtColor
+        lblForMemo.backgroundColor = Style.lblBgColor
+        lblForMemo.textColor = Style.lblTxtColor
     }
 
     @IBAction func backToMain(_ sender: UIButton) {

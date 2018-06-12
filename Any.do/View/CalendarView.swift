@@ -212,9 +212,13 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
                 currentYear += 1
             }
         }
+        deselectAllDateCell()
+        reloadCalendar()
+    }
+    
+    func reloadCalendar() {
         btnYearMonth.setTitle("\(currentYear)년 \(currentMonth)월", for: .normal)
         firstWeekDayOfMonth = getFirstWeekday()
-        deselectAllDateCell()
         dateCellIndexPaths.removeAll()
         dateView.reloadData()
     }
@@ -235,12 +239,21 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
 
     func setDate(date: Date) {
         deselectAllDateCell()
-        let day = Calendar.current.component(.day, from: date)
-        let dayIndexPath = dateCellIndexPaths[day - 1]
-        dateView.selectItem(at: dayIndexPath, animated: true, scrollPosition: .centeredVertically)
-        collectionView(dateView, didSelectItemAt: dayIndexPath)
-    }
 
+        let year = Calendar.current.component(.year, from: date)
+        let month = Calendar.current.component(.month, from: date)
+        if currentYear != year || currentMonth != month {
+            currentYear = year
+            currentMonth = month
+            reloadCalendar()
+        } else {
+            let day = Calendar.current.component(.day, from: date)
+            let dayIndexPath = dateCellIndexPaths[day - 1]
+            dateView.selectItem(at: dayIndexPath, animated: true, scrollPosition: .centeredVertically)
+            collectionView(dateView, didSelectItemAt: dayIndexPath)
+        }
+    }
+    
     /* CollectionView Delegate */
     @available(iOS 6.0, *)
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -323,5 +336,22 @@ extension String {
 
     var date: Date? {
         return String.dateFormatter.date(from: self)
+    }
+    
+    static func dateToString(date: Date) -> String {
+        let year = Calendar.current.component(.year, from: date)
+        let month = Calendar.current.component(.month, from: date)
+        let day = Calendar.current.component(.day, from: date)
+        let hour = Calendar.current.component(.hour, from: date)
+        let min = Calendar.current.component(.minute, from: date)
+        
+        return "\(year)년 \(month)월 \(day)일 \(hour)시 \(min)분"
+    }
+    
+    static func datetimeToString(date: Date) -> String {
+        let hour = Calendar.current.component(.hour, from: date)
+        let min = Calendar.current.component(.minute, from: date)
+        
+        return "\(hour)시 \(min)분"
     }
 }

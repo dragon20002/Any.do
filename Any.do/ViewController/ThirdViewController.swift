@@ -28,26 +28,36 @@ class ThirdViewController: UIViewController {
     @IBAction func changeThemeBlack(_ sender: Any) {
         Style.themeBlack()
         changeTheme()
+        UserDefaults.standard.set(0, forKey: "theme")
+        UserDefaults.standard.synchronize()
     }
     
     @IBAction func changeThemeBlue(_ sender: Any) {
         Style.themeBlue()
         changeTheme()
+        UserDefaults.standard.set(1, forKey: "theme")
+        UserDefaults.standard.synchronize()
     }
     
     @IBAction func changeThemeGreen(_ sender: Any) {
         Style.themeGreen()
         changeTheme()
+        UserDefaults.standard.set(2, forKey: "theme")
+        UserDefaults.standard.synchronize()
     }
     
     @IBAction func changeThemePink(_ sender: Any) {
         Style.themePink()
         changeTheme()
+        UserDefaults.standard.set(3, forKey: "theme")
+        UserDefaults.standard.synchronize()
     }
     
     @IBAction func changeThemeYellow(_ sender: Any) {
         Style.themeYellow()
         changeTheme()
+        UserDefaults.standard.set(4, forKey: "theme")
+        UserDefaults.standard.synchronize()
     }
 
 }

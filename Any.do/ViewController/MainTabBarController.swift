@@ -30,6 +30,11 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                 vc.changeTheme()
             }
             break
+        case 2:
+            if let vc = viewController as? ThirdViewController {
+                vc.changeTheme()
+            }
+            break
         default: break
         }
     }

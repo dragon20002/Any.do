@@ -22,22 +22,32 @@
                                 <rect key="frame" x="12" y="70" width="351" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="todoLabelCell" textLabel="Yn3-x4-esC" style="IBUITableViewCellStyleDefault" id="DGZ-fB-DVm">
-                                        <rect key="frame" x="0.0" y="28" width="351" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="todoLabelCell" rowHeight="50" id="DGZ-fB-DVm" customClass="TodoLabelCell" customModule="Any_do" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="351" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DGZ-fB-DVm" id="hdw-h8-cu8">
-                                            <rect key="frame" x="0.0" y="0.0" width="351" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yn3-x4-esC">
-                                                    <rect key="frame" x="15" y="0.0" width="321" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="777-4U-sGu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="351" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="xuS-QA-vQo"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="777-4U-sGu" firstAttribute="leading" secondItem="hdw-h8-cu8" secondAttribute="leading" id="Nsu-uk-Sml"/>
+                                                <constraint firstItem="777-4U-sGu" firstAttribute="top" secondItem="hdw-h8-cu8" secondAttribute="top" id="Vyx-4u-lJh"/>
+                                                <constraint firstItem="777-4U-sGu" firstAttribute="trailing" secondItem="hdw-h8-cu8" secondAttribute="trailing" id="jqb-Dn-qna"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblName" destination="777-4U-sGu" id="g7K-5f-IDg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -58,7 +68,7 @@
                                     <constraint firstAttribute="width" constant="32" id="RlT-YT-ave"/>
                                     <constraint firstAttribute="height" constant="32" id="SEc-1m-sFo"/>
                                 </constraints>
-                                <state key="normal" image="success-add.png"/>
+                                <state key="normal" image="success-blue.png"/>
                                 <connections>
                                     <action selector="addTodo:" destination="ZFh-lt-uKB" eventType="touchUpInside" id="ATd-dZ-g0b"/>
                                 </connections>
@@ -73,7 +83,6 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Qz1-kM-AYL" firstAttribute="top" secondItem="cW4-nK-FVU" secondAttribute="top" constant="9" id="52t-TE-uh1"/>
                             <constraint firstItem="cW4-nK-FVU" firstAttribute="trailing" secondItem="45M-Ru-qwV" secondAttribute="trailing" constant="10" id="5Ot-KI-6ih"/>
@@ -104,6 +113,6 @@
     </scenes>
     <resources>
         <image name="back.png" width="32" height="32"/>
-        <image name="success-add.png" width="32" height="32"/>
+        <image name="success-blue.png" width="32" height="32"/>
     </resources>
 </document>

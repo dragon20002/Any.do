@@ -24,11 +24,11 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SMi-ld-3lb" customClass="TodoTableView" customModule="Any_do" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SMi-ld-3lb" customClass="TodoTableView" customModule="Any_do" customModuleProvider="target">
                                 <rect key="frame" x="10" y="109" width="748" height="856"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoCell" rowHeight="100" id="Bic-ql-bBc" customClass="TodoCell" customModule="Any_do" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="todoCell" rowHeight="100" id="Bic-ql-bBc" customClass="TodoCell" customModule="Any_do" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="748" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bic-ql-bBc" id="VNR-4T-tv8">
@@ -125,7 +125,7 @@
                 <viewControllerPlaceholder storyboardName="AddEvent" id="rms-9m-e1b" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7F-as-riE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="-521"/>
+            <point key="canvasLocation" x="1051" y="-541"/>
         </scene>
         <!--달력-->
         <scene sceneID="wg7-f3-ORb">
@@ -141,11 +141,11 @@
                                     <constraint firstAttribute="height" constant="372" id="4f0-We-1Ea"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HIR-md-zT7" customClass="EventTableView" customModule="Any_do" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HIR-md-zT7" customClass="EventTableView" customModule="Any_do" customModuleProvider="target">
                                 <rect key="frame" x="12" y="392" width="744" height="573"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="100" id="hEa-hQ-CSY" customClass="EventCell" customModule="Any_do" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="100" id="hEa-hQ-CSY" customClass="EventCell" customModule="Any_do" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="744" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hEa-hQ-CSY" id="f4M-p0-rMw">
@@ -163,7 +163,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="BTx-sN-OIn"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -181,6 +181,7 @@
                                         <connections>
                                             <outlet property="lblName" destination="jNj-gx-aVT" id="h0Y-Kp-Xxb"/>
                                             <outlet property="lblTime" destination="uj4-Yk-sLd" id="U3F-3R-jmn"/>
+                                            <segue destination="cIV-BE-koz" kind="show" identifier="detailEvent" id="bvh-vH-dbq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -217,6 +218,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-105.46875" y="-189.2578125"/>
+        </scene>
+        <!--DetailEvent-->
+        <scene sceneID="vVB-ar-tCZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DetailEvent" id="cIV-BE-koz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qt3-TK-Gur" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="-451"/>
         </scene>
         <!--설정-->
         <scene sceneID="6j0-Um-vQo">

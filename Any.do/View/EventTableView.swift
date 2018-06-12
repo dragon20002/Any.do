@@ -15,9 +15,7 @@ class EventCell: UITableViewCell {
     var event: Event? {
         didSet {
             lblName.text = event?.name
-            
-            // TODO date 계산 후 오전 8:00~12:00 식으로 표기하기
-            //lblTime.text = "\(event?.end - event?.start)"
+            lblTime.text = String.datetimeToString(date: (event?.start)!) + " ~ " + String.datetimeToString(date: (event?.end)!)
         }
     }
     

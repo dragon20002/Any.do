@@ -12,6 +12,15 @@ protocol AddTodoDelegate {
     func addTodoAndUpdateTableView(_ todo: Todo)
 }
 
+class TodoLabelCell: UITableViewCell {
+    @IBOutlet weak var lblName: UILabel!
+    
+    func changeTheme() {
+        lblName.backgroundColor = Style.lblBgColor
+        lblName.textColor = Style.lblTxtColor
+    }
+}
+
 class AddTodoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var todoLabelList = [String]()
     @IBOutlet weak var btnBack: UIButton!
@@ -36,6 +45,23 @@ class AddTodoViewController: UIViewController, UITableViewDelegate, UITableViewD
         todoLabelList.append("선택")
         todoLabelList.append("전송")
         todoLabelList.append("가져가기")
+
+        todoLabelTableView.reloadData()
+        
+        changeTheme()
+    }
+    
+    func changeTheme() {
+        view.backgroundColor = Style.bgColor
+        btnBack.setImage(Style.backImage, for: .normal)
+        btnSuccess.setImage(Style.successImage, for: .normal)
+        
+        todoLabelTableView.backgroundColor = Style.bgColor
+        
+        todoLabelTableView.visibleCells.forEach { cell in
+            let c = cell as! TodoLabelCell
+            c.changeTheme()
+        }
         todoLabelTableView.reloadData()
     }
 
@@ -69,9 +95,10 @@ class AddTodoViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = todoLabelTableView.dequeueReusableCell(withIdentifier: "todoLabelCell")
-        cell?.textLabel?.text = todoLabelList[indexPath.row]
-        return cell!
+        let cell = todoLabelTableView.dequeueReusableCell(withIdentifier: "todoLabelCell") as! TodoLabelCell
+        cell.textLabel?.text = todoLabelList[indexPath.row]
+        cell.changeTheme()
+        return cell
     }
 
 }

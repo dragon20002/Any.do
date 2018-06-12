@@ -32,7 +32,7 @@
 		089761EF20CEC20400F8C9DF /* AddTodo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 089761EE20CEC20400F8C9DF /* AddTodo.storyboard */; };
 		089761F120CEC21700F8C9DF /* AddEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 089761F020CEC21700F8C9DF /* AddEvent.storyboard */; };
 		089761F320CEC95900F8C9DF /* AddTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089761F220CEC95900F8C9DF /* AddTodoViewController.swift */; };
-		089761F620CED63500F8C9DF /* success-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 089761F420CED63500F8C9DF /* success-add.png */; };
+		089761F620CED63500F8C9DF /* success-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 089761F420CED63500F8C9DF /* success-blue.png */; };
 		089761F920CEF1F700F8C9DF /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089761F820CEF1F700F8C9DF /* AddEventViewController.swift */; };
 		0897620020CFD43B00F8C9DF /* plus-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 089761FC20CFD43A00F8C9DF /* plus-black.png */; };
 		0897620120CFD43B00F8C9DF /* plus-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 089761FD20CFD43A00F8C9DF /* plus-pink.png */; };
@@ -43,6 +43,11 @@
 		0897620A20CFDD0E00F8C9DF /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 0897620620CFDD0D00F8C9DF /* back.png */; };
 		0897620B20CFDD0E00F8C9DF /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 0897620720CFDD0D00F8C9DF /* cancel.png */; };
 		0897620F20CFF46B00F8C9DF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0897620E20CFF46B00F8C9DF /* MainTabBarController.swift */; };
+		0897621120D012D200F8C9DF /* DetailEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0897621020D012D200F8C9DF /* DetailEvent.storyboard */; };
+		0897621320D014B400F8C9DF /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0897621220D014B400F8C9DF /* DetailEventViewController.swift */; };
+		0897621720D0269000F8C9DF /* success-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 0897621420D0268F00F8C9DF /* success-pink.png */; };
+		0897621820D0269000F8C9DF /* success-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 0897621520D0268F00F8C9DF /* success-green.png */; };
+		0897621920D0269000F8C9DF /* success-yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0897621620D0268F00F8C9DF /* success-yellow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +78,7 @@
 		089761EE20CEC20400F8C9DF /* AddTodo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTodo.storyboard; sourceTree = "<group>"; };
 		089761F020CEC21700F8C9DF /* AddEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddEvent.storyboard; sourceTree = "<group>"; };
 		089761F220CEC95900F8C9DF /* AddTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewController.swift; sourceTree = "<group>"; };
-		089761F420CED63500F8C9DF /* success-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success-add.png"; sourceTree = "<group>"; };
+		089761F420CED63500F8C9DF /* success-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success-blue.png"; sourceTree = "<group>"; };
 		089761F820CEF1F700F8C9DF /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		089761FC20CFD43A00F8C9DF /* plus-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-black.png"; sourceTree = "<group>"; };
 		089761FD20CFD43A00F8C9DF /* plus-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-pink.png"; sourceTree = "<group>"; };
@@ -84,6 +89,11 @@
 		0897620620CFDD0D00F8C9DF /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		0897620720CFDD0D00F8C9DF /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		0897620E20CFF46B00F8C9DF /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		0897621020D012D200F8C9DF /* DetailEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailEvent.storyboard; sourceTree = "<group>"; };
+		0897621220D014B400F8C9DF /* DetailEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
+		0897621420D0268F00F8C9DF /* success-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success-pink.png"; sourceTree = "<group>"; };
+		0897621520D0268F00F8C9DF /* success-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success-green.png"; sourceTree = "<group>"; };
+		0897621620D0268F00F8C9DF /* success-yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success-yellow.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +138,7 @@
 				0818105C20BAA00B00538A7A /* Info.plist */,
 				089761EE20CEC20400F8C9DF /* AddTodo.storyboard */,
 				089761F020CEC21700F8C9DF /* AddEvent.storyboard */,
+				0897621020D012D200F8C9DF /* DetailEvent.storyboard */,
 			);
 			path = Any.do;
 			sourceTree = "<group>";
@@ -135,6 +146,9 @@
 		0818106220BAA03D00538A7A /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				0897621520D0268F00F8C9DF /* success-green.png */,
+				0897621420D0268F00F8C9DF /* success-pink.png */,
+				0897621620D0268F00F8C9DF /* success-yellow.png */,
 				0897620520CFDD0D00F8C9DF /* back-yellow.png */,
 				0897620620CFDD0D00F8C9DF /* back.png */,
 				0897620420CFDD0D00F8C9DF /* cancel-red.png */,
@@ -143,7 +157,7 @@
 				089761FE20CFD43A00F8C9DF /* plus-green.png */,
 				089761FD20CFD43A00F8C9DF /* plus-pink.png */,
 				089761FF20CFD43A00F8C9DF /* plus-yellow.png */,
-				089761F420CED63500F8C9DF /* success-add.png */,
+				089761F420CED63500F8C9DF /* success-blue.png */,
 				088E170820C932010071FD94 /* plus-blue.png */,
 				088C518D20C83E2F006D00CD /* circle-black.png */,
 				088C518C20C83E2F006D00CD /* circle-green.png */,
@@ -166,6 +180,7 @@
 				0818106A20BAA0AD00538A7A /* ThirdViewController.swift */,
 				089761F220CEC95900F8C9DF /* AddTodoViewController.swift */,
 				089761F820CEF1F700F8C9DF /* AddEventViewController.swift */,
+				0897621220D014B400F8C9DF /* DetailEventViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -255,7 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				089761F620CED63500F8C9DF /* success-add.png in Resources */,
+				089761F620CED63500F8C9DF /* success-blue.png in Resources */,
 				0897620120CFD43B00F8C9DF /* plus-pink.png in Resources */,
 				0897620320CFD43B00F8C9DF /* plus-yellow.png in Resources */,
 				0818106820BAA05000538A7A /* settings.png in Resources */,
@@ -265,6 +280,7 @@
 				0897620820CFDD0E00F8C9DF /* cancel-red.png in Resources */,
 				088C519020C83E30006D00CD /* circle-pink.png in Resources */,
 				089761F120CEC21700F8C9DF /* AddEvent.storyboard in Resources */,
+				0897621720D0269000F8C9DF /* success-pink.png in Resources */,
 				088C519120C83E30006D00CD /* circle-green.png in Resources */,
 				0897620920CFDD0E00F8C9DF /* back-yellow.png in Resources */,
 				0818106720BAA05000538A7A /* date.png in Resources */,
@@ -273,11 +289,14 @@
 				089761EF20CEC20400F8C9DF /* AddTodo.storyboard in Resources */,
 				0818105820BAA00B00538A7A /* Assets.xcassets in Resources */,
 				088E170920C932010071FD94 /* plus-blue.png in Resources */,
+				0897621120D012D200F8C9DF /* DetailEvent.storyboard in Resources */,
 				088C519220C83E30006D00CD /* circle-black.png in Resources */,
 				0897620A20CFDD0E00F8C9DF /* back.png in Resources */,
 				0818105620BAA00000538A7A /* Main.storyboard in Resources */,
+				0897621820D0269000F8C9DF /* success-green.png in Resources */,
 				0818106620BAA05000538A7A /* success.png in Resources */,
 				0897620220CFD43B00F8C9DF /* plus-green.png in Resources */,
+				0897621920D0269000F8C9DF /* success-yellow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +317,7 @@
 				0897620F20CFF46B00F8C9DF /* MainTabBarController.swift in Sources */,
 				0818104F20BA9FFF00538A7A /* AppDelegate.swift in Sources */,
 				0818106B20BAA0AD00538A7A /* ThirdViewController.swift in Sources */,
+				0897621320D014B400F8C9DF /* DetailEventViewController.swift in Sources */,
 				0818105120BA9FFF00538A7A /* FirstViewController.swift in Sources */,
 				0818108220BAE60C00538A7A /* Style.swift in Sources */,
 				088E170720C910050071FD94 /* TodoTableView.swift in Sources */,
