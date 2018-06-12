@@ -95,7 +95,7 @@ class TodoCell: UITableViewCell {
     
 }
 
-class TodoTableView: UITableView {
+class TodoTableView: UITableView, UIGestureRecognizerDelegate {
     // fields
     var todoList = [Todo]()
     var path: String {
@@ -112,10 +112,14 @@ class TodoTableView: UITableView {
 
         let leftSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(changeCellMode))
         leftSwipeRecognizer.direction = .left
+        leftSwipeRecognizer.delegate = self
         let rightSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(changeCellMode))
         rightSwipeRecognizer.direction = .right
-        gestureRecognizers = [ leftSwipeRecognizer, rightSwipeRecognizer ]
+        rightSwipeRecognizer.delegate = self
+        addGestureRecognizer(leftSwipeRecognizer)
+        addGestureRecognizer(rightSwipeRecognizer)
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(moveCell))
+        longPressRecognizer.delegate = self
         addGestureRecognizer(longPressRecognizer)
         
         isUserInteractionEnabled = true
@@ -173,15 +177,16 @@ class TodoTableView: UITableView {
         return nil
     }
 
-    @objc func changeCellMode(recognizer: UISwipeGestureRecognizer) {
+    @objc func changeCellMode(recognizer: UISwipeGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if recognizer.direction == .left { //to normal mode
             getCellFromRecognizer(recognizer)?.setCellModeNormal()
         } else if recognizer.direction == .right { //to delete mode
             getCellFromRecognizer(recognizer)?.setCellModeDelete()
         }
+        return true
     }
     
-    @objc func moveCell(recognizer: UILongPressGestureRecognizer) {
+    @objc func moveCell(recognizer: UILongPressGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         let state = recognizer.state
         let point = recognizer.location(in: self)
         
@@ -200,6 +205,7 @@ class TodoTableView: UITableView {
                 longPressedTodoIndexPath = destIndexPath
             }
         }
+        return true
     }
     
     /* File IO */
