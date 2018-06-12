@@ -9,36 +9,45 @@
 import UIKit
 
 class ThirdViewController: UIViewController {
+
+    var firstView: FirstViewController?
     var secondView: SecondViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstView = tabBarController?.viewControllers![0] as? FirstViewController
         secondView = tabBarController?.viewControllers![1] as? SecondViewController
+    }
+    
+    func changeTheme() {
+        firstView?.todoTableView.changeTheme()
+        secondView?.calendarView.changeTheme()
     }
 
     @IBAction func changeThemeBlack(_ sender: Any) {
         Style.themeBlack()
-        secondView?.calendarView.changeTheme()
+        changeTheme()
     }
     
     @IBAction func changeThemeBlue(_ sender: Any) {
         Style.themeBlue()
-        secondView?.calendarView.changeTheme()
+        changeTheme()
     }
     
     @IBAction func changeThemeGreen(_ sender: Any) {
         Style.themeGreen()
-        secondView?.calendarView.changeTheme()
+        changeTheme()
     }
     
     @IBAction func changeThemePink(_ sender: Any) {
         Style.themePink()
-        secondView?.calendarView.changeTheme()
+        changeTheme()
     }
     
     @IBAction func changeThemeYellow(_ sender: Any) {
         Style.themeYellow()
-        secondView?.calendarView.changeTheme()
+        changeTheme()
     }
 
 }

@@ -8,9 +8,11 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var todoTableView: TodoTableView!
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddTodoDelegate {
     
+    // fields
+    @IBOutlet weak var todoTableView: TodoTableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,12 +20,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         todoTableView.dataSource = self
     }
 
-    /* UITableViewDelegate */
-    //    @available(iOS 2.0, *)
-    //    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //        return
-    //    }
-    
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO on Select Item
@@ -37,19 +33,27 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     /* UITableViewDataSource */
     // must have
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TodoTableView.todoList.count
+        return todoTableView.todoList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let todoCell = todoTableView.dequeueReusableCell(withIdentifier: "todoCell") as! TodoCell
-        let todo = TodoTableView.todoList[indexPath.row]
-        todoCell.lblName.text = todo.name
+        todoCell.todo = todoTableView.todoList[indexPath.row]
         return todoCell
     }
-
-    /* IBAction */
-    @IBAction func addTodo(_ sender: Any) {
-        // TODO on Add Item
+    
+    /* 현재화면 >> 추가화면 */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let addTodoViewController = segue.destination as! AddTodoViewController
+        
+        addTodoViewController.delegate = self
     }
     
+    /* 현재화면 << 추가화면 */
+    func addTodoAndUpdateTableView(_ todo: Todo) {
+        todoTableView.todoList.append(todo)
+        todoTableView.saveTodoList()
+        todoTableView.reloadData()
+    }
+
 }
