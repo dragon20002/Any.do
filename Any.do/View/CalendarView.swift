@@ -246,8 +246,10 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
             currentYear = year
             currentMonth = month
             reloadCalendar()
-        } else {
-            let day = Calendar.current.component(.day, from: date)
+        }
+        
+        let day = Calendar.current.component(.day, from: date)
+        if dateCellIndexPaths.count > day - 1 {
             let dayIndexPath = dateCellIndexPaths[day - 1]
             dateView.selectItem(at: dayIndexPath, animated: true, scrollPosition: .centeredVertically)
             collectionView(dateView, didSelectItemAt: dayIndexPath)

@@ -56,6 +56,19 @@ class EventTableView: UITableView {
         reloadData()
     }
     
+    func deleteEvent(id: Int) -> Int {
+        let n = eventList.count
+        for i in 0 ..< n {
+            if eventList[i].id == id {
+                eventList.remove(at: i)
+                saveEventList()
+                reloadData()
+                return id
+            }
+        }
+        return 0
+    }
+    
     /* File IO */
     func saveEventList() {
         NSKeyedArchiver.archiveRootObject(eventList, toFile: path)

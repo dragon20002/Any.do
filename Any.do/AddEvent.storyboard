@@ -41,7 +41,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gnV-B5-kCR">
-                                <rect key="frame" x="12" y="72" width="351" height="523.5"/>
+                                <rect key="frame" x="12" y="72" width="351" height="623.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이벤트 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1W-DU-zc7">
                                         <rect key="frame" x="0.0" y="0.0" width="351" height="15"/>
@@ -76,40 +76,43 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="r1t-vs-9TY">
-                                        <rect key="frame" x="0.0" y="100" width="351" height="50"/>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="r1t-vs-9TY">
+                                        <rect key="frame" x="0.0" y="100" width="351" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="tgV-Vy-IHg"/>
+                                            <constraint firstAttribute="height" constant="100" id="tgV-Vy-IHg"/>
                                         </constraints>
                                         <date key="date" timeIntervalSinceReferenceDate="550434906.78980803">
                                             <!--2018-06-11 18:35:06 +0000-->
                                         </date>
+                                        <connections>
+                                            <action selector="changeEndDate:" destination="50M-ac-mGz" eventType="valueChanged" id="3I9-G5-ClW"/>
+                                        </connections>
                                     </datePicker>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="g7c-5P-hSy">
-                                        <rect key="frame" x="0.0" y="150" width="351" height="50"/>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="g7c-5P-hSy">
+                                        <rect key="frame" x="0.0" y="200" width="351" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Cwl-Fj-4uv"/>
+                                            <constraint firstAttribute="height" constant="100" id="Cwl-Fj-4uv"/>
                                         </constraints>
                                         <date key="date" timeIntervalSinceReferenceDate="550434906.78980803">
                                             <!--2018-06-11 18:35:06 +0000-->
                                         </date>
                                     </datePicker>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cen-69-bQZ">
-                                        <rect key="frame" x="0.0" y="200" width="351" height="20"/>
+                                        <rect key="frame" x="0.0" y="300" width="351" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="dRq-u8-6N7"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNA-Va-p1B">
-                                        <rect key="frame" x="0.0" y="220" width="351" height="21.5"/>
+                                        <rect key="frame" x="0.0" y="320" width="351" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이벤트 위치" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MRx-5b-kRY">
-                                        <rect key="frame" x="0.0" y="241.5" width="351" height="50"/>
+                                        <rect key="frame" x="0.0" y="341.5" width="351" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="aoF-uo-SIg"/>
                                         </constraints>
@@ -118,19 +121,19 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PuS-QF-pMv">
-                                        <rect key="frame" x="0.0" y="291.5" width="351" height="20"/>
+                                        <rect key="frame" x="0.0" y="391.5" width="351" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="kU7-kQ-3lp"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알람" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gg7-2q-XA5">
-                                        <rect key="frame" x="0.0" y="311.5" width="351" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="411.5" width="351" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4nv-91-QMf">
-                                        <rect key="frame" x="0.0" y="332" width="351" height="50"/>
+                                        <rect key="frame" x="0.0" y="432" width="351" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Cpv-So-naK"/>
@@ -140,19 +143,19 @@
                                         </date>
                                     </datePicker>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SuD-d2-dML">
-                                        <rect key="frame" x="0.0" y="382" width="351" height="20"/>
+                                        <rect key="frame" x="0.0" y="482" width="351" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="oqB-4M-DgT"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="메모" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFv-2i-XI4">
-                                        <rect key="frame" x="0.0" y="402" width="351" height="21.5"/>
+                                        <rect key="frame" x="0.0" y="502" width="351" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="눌러서 메모를 추가해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2EM-bH-KIg">
-                                        <rect key="frame" x="0.0" y="423.5" width="351" height="100"/>
+                                        <rect key="frame" x="0.0" y="523.5" width="351" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="Zwm-rD-JUH"/>
                                         </constraints>

@@ -96,9 +96,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func deleteEvent(id: Int) {
-        eventTableView.eventList.remove(at: id)
-        eventTableView.saveEventList()
-        eventTableView.reloadData()
+        _ = eventTableView.deleteEvent(id: id)
     }
 
 }

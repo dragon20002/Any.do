@@ -38,6 +38,8 @@ class AddEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dateEnd.setDate(dateEnd.date.addingTimeInterval(1800), animated: true)
+        
         changeTheme()
     }
     
@@ -80,4 +82,14 @@ class AddEventViewController: UIViewController {
         }
     }
 
+    @IBAction func changeEndDate(_ sender: UIDatePicker) {
+        let start = sender.date
+        let end = dateEnd.date
+        
+        if end.timeIntervalSince(start) < 1800 {
+            let date = start.addingTimeInterval(1800)
+            dateEnd.setDate(date, animated: true)
+        }
+    }
+    
 }
