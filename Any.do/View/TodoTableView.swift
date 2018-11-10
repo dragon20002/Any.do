@@ -34,18 +34,18 @@ class TodoCell: UITableViewCell {
     }
     
     func changeTheme() {
-        backgroundColor = Style.bgColor
+        backgroundColor = AppTheme.bgColor
         if todo?.delMode == true {
             setCellModeDelete()
         } else {
             setCellModeNormal()
         }
-        btnDelete.setImage(Style.cancelImage, for: .normal)
+        btnDelete.setImage(AppTheme.cancelImage, for: .normal)
     }
 
     /* Gesture Handler Delegate */
     func setCellModeNormal() {
-        lblName.textColor = Style.lblTxtColor
+        lblName.textColor = AppTheme.lblTxtColor
         btnDelete.isHidden = true
         todo?.delMode = false
         
@@ -61,7 +61,7 @@ class TodoCell: UITableViewCell {
     }
     
     func setCellModeDelete() {
-        lblName.textColor = Style.cancelLine
+        lblName.textColor = AppTheme.cancelLine
         btnDelete.isHidden = false
         todo?.delMode = true
         
@@ -69,7 +69,7 @@ class TodoCell: UITableViewCell {
         UIGraphicsBeginImageContext(ivCancelLine.frame.size)
         let context = UIGraphicsGetCurrentContext()
         context?.setLineWidth(2.0)
-        context?.setStrokeColor(Style.cancelLine.cgColor)
+        context?.setStrokeColor(AppTheme.cancelLine.cgColor)
         context?.move(to: CGPoint(x: 0, y: 50))
         context?.addLine(to: CGPoint(x: ivCancelLine.frame.size.width, y: 50))
         context?.strokePath()
@@ -130,7 +130,7 @@ class TodoTableView: UITableView, UIGestureRecognizerDelegate {
     }
 
     func changeTheme() {
-        backgroundColor = Style.bgColor
+        backgroundColor = AppTheme.bgColor
         visibleCells.forEach { cell in
             let c = cell as! TodoCell
             c.changeTheme()

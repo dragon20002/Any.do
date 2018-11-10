@@ -39,20 +39,20 @@ class DetailEventViewController: UIViewController {
     }
     
     func changeTheme() {
-        view.backgroundColor = Style.bgColor
-        btnBack.setImage(Style.backImage, for: .normal)
-        lblName.backgroundColor = Style.lblBgColor
-        lblName.textColor = Style.lblTxtColor
-        lblStart.backgroundColor = Style.lblBgColor
-        lblStart.textColor = Style.lblTxtColor
-        lblEnd.backgroundColor = Style.lblBgColor
-        lblEnd.textColor = Style.lblTxtColor
-        lblLocation.backgroundColor = Style.lblBgColor
-        lblLocation.textColor = Style.lblTxtColor
-        lblAlarm.backgroundColor = Style.lblBgColor
-        lblAlarm.textColor = Style.lblTxtColor
-        lblMemo.backgroundColor = Style.lblBgColor
-        lblMemo.textColor = Style.lblTxtColor
+        view.backgroundColor = AppTheme.bgColor
+        btnBack.setImage(AppTheme.backImage, for: .normal)
+        lblName.backgroundColor = AppTheme.lblBgColor
+        lblName.textColor = AppTheme.lblTxtColor
+        lblStart.backgroundColor = AppTheme.lblBgColor
+        lblStart.textColor = AppTheme.lblTxtColor
+        lblEnd.backgroundColor = AppTheme.lblBgColor
+        lblEnd.textColor = AppTheme.lblTxtColor
+        lblLocation.backgroundColor = AppTheme.lblBgColor
+        lblLocation.textColor = AppTheme.lblTxtColor
+        lblAlarm.backgroundColor = AppTheme.lblBgColor
+        lblAlarm.textColor = AppTheme.lblTxtColor
+        lblMemo.backgroundColor = AppTheme.lblBgColor
+        lblMemo.textColor = AppTheme.lblTxtColor
     }
     
     @IBAction func backToMain(_ sender: UIButton) {

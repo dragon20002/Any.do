@@ -18,7 +18,7 @@
 		0818106820BAA05000538A7A /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0818106520BAA05000538A7A /* settings.png */; };
 		0818106B20BAA0AD00538A7A /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818106A20BAA0AD00538A7A /* ThirdViewController.swift */; };
 		0818107020BAA0CF00538A7A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818106D20BAA0CE00538A7A /* CalendarView.swift */; };
-		0818108220BAE60C00538A7A /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818108120BAE60C00538A7A /* Style.swift */; };
+		0818108220BAE60C00538A7A /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818108120BAE60C00538A7A /* AppTheme.swift */; };
 		0818108620BB337E00538A7A /* circle-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 0818108520BB337E00538A7A /* circle-blue.png */; };
 		08196FE720CE21C100696114 /* EventTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08196FE620CE21C100696114 /* EventTableView.swift */; };
 		088C519020C83E30006D00CD /* circle-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 088C518B20C83E2E006D00CD /* circle-pink.png */; };
@@ -64,7 +64,7 @@
 		0818106520BAA05000538A7A /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		0818106A20BAA0AD00538A7A /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		0818106D20BAA0CE00538A7A /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		0818108120BAE60C00538A7A /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		0818108120BAE60C00538A7A /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		0818108520BB337E00538A7A /* circle-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle-blue.png"; sourceTree = "<group>"; };
 		08196FE620CE21C100696114 /* EventTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableView.swift; sourceTree = "<group>"; };
 		088C518B20C83E2E006D00CD /* circle-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle-pink.png"; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 		0818108020BAE5F200538A7A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				0818108120BAE60C00538A7A /* Style.swift */,
+				0818108120BAE60C00538A7A /* AppTheme.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 				0818106B20BAA0AD00538A7A /* ThirdViewController.swift in Sources */,
 				0897621320D014B400F8C9DF /* DetailEventViewController.swift in Sources */,
 				0818105120BA9FFF00538A7A /* FirstViewController.swift in Sources */,
-				0818108220BAE60C00538A7A /* Style.swift in Sources */,
+				0818108220BAE60C00538A7A /* AppTheme.swift in Sources */,
 				088E170720C910050071FD94 /* TodoTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

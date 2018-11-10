@@ -20,11 +20,11 @@ class EventCell: UITableViewCell {
     }
     
     func changeTheme() {
-        backgroundColor = Style.bgColor
-        lblName.backgroundColor = Style.lblBgColor
-        lblName.textColor = Style.lblTxtColor
-        lblTime.backgroundColor = Style.lblBgColor
-        lblTime.textColor = Style.lblTxtColor
+        backgroundColor = AppTheme.bgColor
+        lblName.backgroundColor = AppTheme.lblBgColor
+        lblName.textColor = AppTheme.lblTxtColor
+        lblTime.backgroundColor = AppTheme.lblBgColor
+        lblTime.textColor = AppTheme.lblTxtColor
     }
 }
 
@@ -48,7 +48,7 @@ class EventTableView: UITableView {
     }
     
     func changeTheme() {
-        backgroundColor = Style.bgColor
+        backgroundColor = AppTheme.bgColor
         visibleCells.forEach { cell in
             let c = cell as! EventCell
             c.changeTheme()

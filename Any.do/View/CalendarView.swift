@@ -12,7 +12,7 @@ class DateCell: UICollectionViewCell {
     // fields
     let btn: UIButton = {
         let btn = UIButton()
-        btn.setBackgroundImage(Style.cellAccentBgImage, for: .normal)
+        btn.setBackgroundImage(AppTheme.cellAccentBgImage, for: .normal)
         btn.isUserInteractionEnabled = false
         btn.isHidden = true
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -24,7 +24,7 @@ class DateCell: UICollectionViewCell {
         lbl.text = "00"
         lbl.textAlignment = .center
         lbl.font = UIFont.systemFont(ofSize: 16)
-        lbl.textColor = Style.lblTxtColor
+        lbl.textColor = AppTheme.lblTxtColor
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -32,7 +32,7 @@ class DateCell: UICollectionViewCell {
     // init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = Style.bgColor
+        backgroundColor = AppTheme.bgColor
         layer.masksToBounds = true
         
         setupViews()
@@ -53,18 +53,18 @@ class DateCell: UICollectionViewCell {
     }
     
     func changeTheme() {
-        btn.setBackgroundImage(Style.cellAccentBgImage, for: .normal)
-        lbl.textColor = Style.lblTxtColor
+        btn.setBackgroundImage(AppTheme.cellAccentBgImage, for: .normal)
+        lbl.textColor = AppTheme.lblTxtColor
     }
     
     func select() {
         btn.isHidden = false
-        lbl.textColor = Style.cellAccentTxtColor
+        lbl.textColor = AppTheme.cellAccentTxtColor
     }
     
     func deselect() {
         btn.isHidden = true
-        lbl.textColor = Style.lblTxtColor
+        lbl.textColor = AppTheme.lblTxtColor
     }
     
 }
@@ -85,23 +85,23 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     let btnYearMonth: UIButton = {
         let btn = UIButton()
         btn.setTitle("Year Month", for: .normal)
-        btn.backgroundColor = Style.btnBgColor
-        btn.setTitleColor(Style.btnTxtColor, for: .normal)
+        btn.backgroundColor = AppTheme.btnBgColor
+        btn.setTitleColor(AppTheme.btnTxtColor, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
     
     let weekdayView: UIStackView = {
         let stackView = UIStackView()
-        stackView.backgroundColor = Style.bgColor
+        stackView.backgroundColor = AppTheme.bgColor
         stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         var days = [ "일", "월", "화", "수", "목", "금", "토" ]
         for i in 0 ..< 7 {
             let lbl = UILabel()
             lbl.text = days[i]
-            lbl.backgroundColor = Style.lblBgColor
-            lbl.textColor = Style.lblTxtColor
+            lbl.backgroundColor = AppTheme.lblBgColor
+            lbl.textColor = AppTheme.lblTxtColor
             lbl.textAlignment = .center
             stackView.addArrangedSubview(lbl)
         }
@@ -114,7 +114,7 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         let v = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         v.showsHorizontalScrollIndicator = false
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = Style.bgColor
+        v.backgroundColor = AppTheme.bgColor
         v.allowsMultipleSelection = false
         return v
     }()
@@ -181,16 +181,16 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     func changeTheme() {
         deselectAllDateCell()
         
-        backgroundColor = Style.bgColor
-        btnYearMonth.backgroundColor = Style.btnBgColor
-        btnYearMonth.setTitleColor(Style.btnTxtColor, for: .normal)
+        backgroundColor = AppTheme.bgColor
+        btnYearMonth.backgroundColor = AppTheme.btnBgColor
+        btnYearMonth.setTitleColor(AppTheme.btnTxtColor, for: .normal)
         let subviews = weekdayView.subviews
         for i in 0 ..< 7 {
             let lbl = subviews[i] as! UILabel
-            lbl.backgroundColor = Style.lblBgColor
-            lbl.textColor = Style.lblTxtColor
+            lbl.backgroundColor = AppTheme.lblBgColor
+            lbl.textColor = AppTheme.lblTxtColor
         }
-        dateView.backgroundColor = Style.bgColor
+        dateView.backgroundColor = AppTheme.bgColor
         dateView.visibleCells.forEach { cell in
             let c = cell as! DateCell
             c.changeTheme()
@@ -288,7 +288,7 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     @available(iOS 6.0, *)
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! DateCell
-        cell.backgroundColor = Style.lblBgColor
+        cell.backgroundColor = AppTheme.lblBgColor
         if indexPath.item <= firstWeekDayOfMonth - 2 {
             cell.isHidden = true
         } else {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Style {
+struct AppTheme {
     static var tabBarItemColor = UIColor.blue
     static var bgColor = UIColor.white
     static var btnBgColor = UIColor.white

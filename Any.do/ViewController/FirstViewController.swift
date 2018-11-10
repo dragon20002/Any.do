@@ -21,35 +21,35 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let theme = UserDefaults.standard.integer(forKey: "theme")
         switch theme {
         case 0:
-            Style.themeBlack()
+            AppTheme.themeBlack()
             break
         case 1:
-            Style.themeBlue()
+            AppTheme.themeBlue()
             break
         case 2:
-            Style.themeGreen()
+            AppTheme.themeGreen()
             break
         case 3:
-            Style.themePink()
+            AppTheme.themePink()
             break
         case 4:
-            Style.themeYellow()
+            AppTheme.themeYellow()
         default:
-            Style.themeBlue()
+            AppTheme.themeBlue()
         }
         changeTheme()
-        tabBarController?.tabBar.tintColor = Style.tabBarItemColor
+        tabBarController?.tabBar.tintColor = AppTheme.tabBarItemColor
         
         todoTableView.delegate = self
         todoTableView.dataSource = self
     }
 
     func changeTheme() {
-        view.backgroundColor = Style.bgColor
-        lblTitle.backgroundColor = Style.lblBgColor
-        lblTitle.textColor = Style.btnTxtColor
+        view.backgroundColor = AppTheme.bgColor
+        lblTitle.backgroundColor = AppTheme.lblBgColor
+        lblTitle.textColor = AppTheme.btnTxtColor
         todoTableView.changeTheme()
-        btnAdd.setImage(Style.btnAddImage, for: .normal)
+        btnAdd.setImage(AppTheme.btnAddImage, for: .normal)
     }
 
     /* UITableViewDelegate */

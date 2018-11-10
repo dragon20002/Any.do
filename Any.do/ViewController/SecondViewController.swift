@@ -40,10 +40,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func changeTheme() {
-        view.backgroundColor = Style.bgColor
+        view.backgroundColor = AppTheme.bgColor
         calendarView.changeTheme()
         eventTableView.changeTheme()
-        btnAdd.setImage(Style.btnAddImage, for: .normal)
+        btnAdd.setImage(AppTheme.btnAddImage, for: .normal)
     }
     
     /* UITableViewDelegate */

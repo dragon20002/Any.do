@@ -16,8 +16,8 @@ class TodoLabelCell: UITableViewCell {
     @IBOutlet weak var lblName: UILabel!
     
     func changeTheme() {
-        lblName.backgroundColor = Style.lblBgColor
-        lblName.textColor = Style.lblTxtColor
+        lblName.backgroundColor = AppTheme.lblBgColor
+        lblName.textColor = AppTheme.lblTxtColor
     }
 }
 
@@ -54,11 +54,11 @@ class AddTodoViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func changeTheme() {
-        view.backgroundColor = Style.bgColor
-        btnBack.setImage(Style.backImage, for: .normal)
-        btnSuccess.setImage(Style.successImage, for: .normal)
+        view.backgroundColor = AppTheme.bgColor
+        btnBack.setImage(AppTheme.backImage, for: .normal)
+        btnSuccess.setImage(AppTheme.successImage, for: .normal)
         
-        todoLabelTableView.backgroundColor = Style.bgColor
+        todoLabelTableView.backgroundColor = AppTheme.bgColor
         
         todoLabelTableView.visibleCells.forEach { cell in
             let c = cell as! TodoLabelCell

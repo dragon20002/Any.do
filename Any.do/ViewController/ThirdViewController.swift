@@ -17,44 +17,44 @@ class ThirdViewController: UIViewController {
     }
 
     func changeTheme() {
-        view.backgroundColor = Style.bgColor
-        lblTitle.backgroundColor = Style.lblBgColor
-        lblTitle.textColor = Style.btnTxtColor
-        lblTheme.backgroundColor = Style.lblBgColor
-        lblTheme.textColor = Style.lblTxtColor
-        tabBarController?.tabBar.tintColor = Style.tabBarItemColor
+        view.backgroundColor = AppTheme.bgColor
+        lblTitle.backgroundColor = AppTheme.lblBgColor
+        lblTitle.textColor = AppTheme.btnTxtColor
+        lblTheme.backgroundColor = AppTheme.lblBgColor
+        lblTheme.textColor = AppTheme.lblTxtColor
+        tabBarController?.tabBar.tintColor = AppTheme.tabBarItemColor
     }
 
     @IBAction func changeThemeBlack(_ sender: Any) {
-        Style.themeBlack()
+        AppTheme.themeBlack()
         changeTheme()
         UserDefaults.standard.set(0, forKey: "theme")
         UserDefaults.standard.synchronize()
     }
     
     @IBAction func changeThemeBlue(_ sender: Any) {
-        Style.themeBlue()
+        AppTheme.themeBlue()
         changeTheme()
         UserDefaults.standard.set(1, forKey: "theme")
         UserDefaults.standard.synchronize()
     }
     
     @IBAction func changeThemeGreen(_ sender: Any) {
-        Style.themeGreen()
+        AppTheme.themeGreen()
         changeTheme()
         UserDefaults.standard.set(2, forKey: "theme")
         UserDefaults.standard.synchronize()
     }
     
     @IBAction func changeThemePink(_ sender: Any) {
-        Style.themePink()
+        AppTheme.themePink()
         changeTheme()
         UserDefaults.standard.set(3, forKey: "theme")
         UserDefaults.standard.synchronize()
     }
     
     @IBAction func changeThemeYellow(_ sender: Any) {
-        Style.themeYellow()
+        AppTheme.themeYellow()
         changeTheme()
         UserDefaults.standard.set(4, forKey: "theme")
         UserDefaults.standard.synchronize()
