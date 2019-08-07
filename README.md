@@ -1,7 +1,7 @@
 # iOS 프로그래밍 과목 기말 개인프로젝트
 
 ### Convert Android to iOS app
-LinkedIn에서 개발한 Any.do Android 앱을 iOS 앱으로 컨버팅한 일정관리 앱 입니다.
+Any.do Android 앱을 iOS 앱으로 컨버팅한 일정관리 앱 입니다.
 
 개발환경: Xcode 9.3-compatible, Swift 4<br>
 타겟버전: iOS 9.3 이상
